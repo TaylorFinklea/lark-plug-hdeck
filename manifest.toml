@@ -1,0 +1,33 @@
+[plugin]
+name = "Harness Deck"
+description = "Pending asks + reports from your local harness-deck server"
+version = "0.1.0"
+author = "taylor"
+icon = "📋"
+icon_nerd = "󰠮"
+category = "dev"
+
+# Inbox is the high-frequency surface — what needs you right now. Marked
+# prefetch so opening larkline shows the count immediately, and the
+# widget refresh keeps it honest in the background.
+[[commands]]
+name = "Inbox"
+description = "Reports awaiting review or carrying open asks"
+entry = "inbox.lua"
+quickkey = "hd"
+timeout_seconds = 5
+prefetch = true
+widget = true
+widget_refresh_secs = 30
+
+[[commands]]
+name = "All Reports"
+description = "Every non-archived report, newest first"
+entry = "all.lua"
+timeout_seconds = 5
+
+[[commands]]
+name = "In Flight"
+description = "Reports with live telemetry updated in the last minute"
+entry = "live.lua"
+timeout_seconds = 5
