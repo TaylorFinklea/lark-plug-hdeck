@@ -40,13 +40,9 @@ local function hd_get(path)
     return data, nil
 end
 
-local function status_icon(s)
-    if s == "awaiting-review" then return "🟡" end
-    if s == "answered" then return "🔵" end
-    if s == "done" then return "🟢" end
-    if s == "draft" then return "⚪" end
-    return "·"
-end
+-- status_icon is intentionally omitted in this file — every row in
+-- the In Flight picker is by definition live, so the icon is always
+-- the green-pulse 🟢. Keep status_icon in lib.lua for inbox / all.
 
 local function is_live(r)
     if not r.live or not r.live.updated then return false end
